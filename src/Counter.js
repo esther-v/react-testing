@@ -26,7 +26,6 @@ const Counter = ({ initialCount }) => {
         <button onClick={decrement}>Decrement</button>
         <button onClick={restart}>Restart</button>
         <button onClick={switchSigns}>Switch Signs</button>
-      
       </div>
     </div>
     

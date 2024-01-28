@@ -16,6 +16,13 @@ describe(Counter, () => {
     const countValue2 = Number(getByTestId("count").textContent);
     expect(countValue2).toEqual(1);
   });
+  it("count should decrement by 1 if the decrement btn is clicked", () => {
+    const { getByTestId, getByRole } = render(<Counter initialCount={0}/>);
+    const decrementBtn = getByRole("button", { name: "Decrement" });
+    expect(Number(getByTestId("count").textContent)).toEqual(0);
+    fireEvent.click(decrementBtn)
+    expect(Number(getByTestId("count").textContent)).toEqual(-1);
+  })
   it("count should be 0 if the restart button is clicked" , () => {
     const { getByTestId, getByRole }= render(<Counter initialCount={50} />);
     const restartBtn = getByRole("button", { name: "Restart"});
